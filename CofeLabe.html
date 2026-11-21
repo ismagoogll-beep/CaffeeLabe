@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee House</title>
+    <link rel="stylesheet" href="CofeLabe.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">☕ CoffeeLabe</div>
+        <nav class="nav">
+            <a href="#home">Главная</a>
+            <a href="#menu">Меню</a>
+            <a href="#about">О нас</a>
+            <a href="#booking">Запись</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Лучший кофе в городе</h1>
+            <p class="hero-text">Ароматный кофе, уютная атмосфера и вкусные десерты ждут тебя</p>
+            <button class="cta-button" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})">Записаться</button>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+    <h2 class="section-title">Наше меню</h2>
+    <div class="menu-grid">
+        <div class="menu-card">
+            <img class="card-photo" src="https://image.qwenlm.ai/public_source/af81641e-c008-4fa9-bbbe-024eafccc820/0cc641810-6d31-423d-bb03-61fff9300da54211.png" alt="Эспрессо">
+            <h3>Эспрессо</h3>
+            <p>Крепкий и насыщенный</p>
+            <span class="price">150 ₽</span>
+        </div>
+        <div class="menu-card">
+            <img class="card-photo" src="https://image.qwenlm.ai/public_source/af81641e-c008-4fa9-bbbe-024eafccc820/6cc641810-6d31-423d-bb03-61fff9300da59584.png" alt="Капучино">
+            <h3>Капучино</h3>
+            <p>Нежная молочная пенка</p>
+            <span class="price">200 ₽</span>
+        </div>
+        <div class="menu-card">
+            <img class="card-photo" src="https://image.qwenlm.ai/public_source/af81641e-c008-4fa9-bbbe-024eafccc820/2cc641810-6d31-423d-bb03-61fff9300da54713.png" alt="Горячий шоколад">
+            <h3>Горячий шоколад</h3>
+            <p>С маршмеллоу</p>
+            <span class="price">180 ₽</span>
+        </div>
+        <div class="menu-card">
+            <img class="card-photo" src="https://image.qwenlm.ai/public_source/af81641e-c008-4fa9-bbbe-024eafccc820/0cc641810-6d31-423d-bb03-61fff9300da56664.png" alt="Круассан">
+            <h3>Круассан</h3>
+            <p>Свежая выпечка</p>
+            <span class="price">120 ₽</span>
+        </div>
+    </div>
+</section>
+
+    <section id="about" class="about-section">
+        <h2 class="section-title">О нашей кофейне</h2>
+        <div class="about-content">
+            <p>Мы варим кофе с любовью уже более 5 лет. Используем только лучшие зерна от проверенных поставщиков. Наша команда бариста — настоящие профессионалы своего дела.</p>
+            <p>Приходи к нам за атмосферой уюта, вкусным кофе и приятным общением!</p>
+        </div>
+    </section>
+
+    <section id="booking" class="booking-section">
+        <h2 class="section-title">Забронировать столик</h2>
+        <form id="bookingForm" class="booking-form">
+            <input type="text" id="name" placeholder="Ваше имя" required>
+            <input type="tel" id="phone" placeholder="Телефон" required>
+            <select id="service" required>
+                <option value="">Выберите услугу</option>
+                <option value="Кофе на вынос">Кофе на вынос</option>
+                <option value="Столик в кафе">Столик в кафе</option>
+                <option value="Мастер-класс">Мастер-класс</option>
+            </select>
+            <input type="date" id="date" required>
+            <button type="submit" class="submit-button">Отправить заявку</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 CoffeeLabe. Все права защищены.</p>
+    </footer>
+
+    <script>
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var phoneNumber = '79634161424';
+
+        var name    = document.getElementById('name').value;
+        var phone   = document.getElementById('phone').value;
+        var service = document.getElementById('service').value;
+        var date    = document.getElementById('date').value;
+
+        var message =
+            'Новая запись!%0A' +
+            'Имя: ' + encodeURIComponent(name) + '%0A' +
+            'Телефон: ' + encodeURIComponent(phone) + '%0A' +
+            'Услуга: ' + encodeURIComponent(service) + '%0A' +
+            'Дата: ' + encodeURIComponent(date);
+
+        window.open('https://wa.me/' + phoneNumber + '?text=' + message, '_blank');
+    });
+    </script>
+</body>
+</html>
